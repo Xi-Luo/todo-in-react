@@ -4,8 +4,11 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  /* --background-start-rgb: 214, 219, 220; */
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-start: antiquewhite;
+  --background-end:lightyellow;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +24,52 @@ body {
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      var(--background-end)
     )
-    rgb(var(--background-start-rgb));
+    var(--background-start);
+}
+
+.todo-list{
+  background-color: #ffd9df;
+  width: 550px;
+}
+
+.todo-list-title {
+  background-color: pink;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.todo-list-body {
+  max-height: 800px;
+  overflow: auto;
+
+}
+.todo-list-item{
+  padding: 8px;
+  border-bottom: 1px solid lightpink;
+}
+.todo-list-item-time{
+  color: #999;
+  font-size: 14px;
+}
+.todo-list-item__foot{
+  margin: 0 5px;
+}
+.todo-input{
+  width: 500px;
+  height: 765px;
+  padding: 8px;
+  font-size: 18px;
+  box-shadow: 10px 10px 10px lightgray;
+}
+textarea:focus-visible{
+  outline: unset;
+}
+.todo-list-item-done{
+  cursor: pointer;
+  color:#67C23A;
+  border: 1px solid #67C23A;
+  border-radius: 5px;
+  padding: 0 5px;
 }
