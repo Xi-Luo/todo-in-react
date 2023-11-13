@@ -57,8 +57,8 @@ body {
   margin: 0 5px;
 }
 .todo-input{
-  width: 500px;
-  height: 765px;
+  width: 450px;
+  height: 100%;
   padding: 8px;
   font-size: 18px;
   box-shadow: 10px 10px 10px lightgray;
@@ -71,5 +71,25 @@ textarea:focus-visible{
   color:#67C23A;
   border: 1px solid #67C23A;
   border-radius: 5px;
-  padding: 0 5px;
+  border-radius: 5px;
+  padding: 0 2px;
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+  line-height: 18px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-left: 5px;
+}
+.todo-list-item-edit{
+  cursor: pointer;
+  color:#67C23A;
+  font-size: 16px;
+}
+.todo-list-item-edit +.todo-list-item-edit{
+  margin-left: 5px;
+}
+.todo-list-item-content-del{
+  font-style:italic;
+  color:#909399;
 }

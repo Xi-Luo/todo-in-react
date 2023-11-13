@@ -1,20 +1,26 @@
 "use client"
 import { useState } from 'react'
 
-export default function TodoInput({ createTodo}){ 
-  const [content, setContent] = useState('')
+export default function TodoInput({ todoEditInfo, createTodo, updateTodo, changeContent }) {
+  // const [content, setContent] = useState('')
   function handleOnChange(e) {
-    console.log('handleOnChange',e)
-    setContent(e.target.value)
-
+    // setContent(e.target.value)
+    changeContent(e.target.value)
   }
   function handleKeyPress(e) {
-     console.log('handleKeyPress',e)
+    console.log('handleKeyPress', e)
     if (e.key === "Enter") {
       e.preventDefault()
-      console.log('handleKeyPress', e.key)
-      createTodo(content)
-      setContent('')
+      if (todoEditInfo.id) {
+        // 编辑
+        updateTodo(todoEditInfo)
+
+      } else {
+        // 新增
+        createTodo(todoEditInfo)
+        // setContent('')
+      }
+
     }
   }
   return (
@@ -22,7 +28,7 @@ export default function TodoInput({ createTodo}){
       <textarea
         className="todo-input"
         placeholder="please input todo..."
-        type="text" value={content}
+        type="text" value={todoEditInfo.content}
         onChange={handleOnChange}
         onKeyPress={handleKeyPress}></textarea>
     </div>

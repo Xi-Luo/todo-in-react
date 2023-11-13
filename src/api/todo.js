@@ -1,9 +1,16 @@
-import axios from "axios";
-
-const getTodoList = () => axios.get('/todo/list')
-const removeTodo = () => axios.post('/todo/remove')
-const addTodo = () => axios.post('/todo/add')
-const updateTodo = () => axios.post('/todo/update')
+import request from "@/utils/axios"
+function getTodoList() {
+	return request({ url: '/todo/list', method: 'get' })
+}
+function removeTodo(id) {
+	return request({ url: '/todo/remove', method: 'post', params: { id } })
+}
+function addTodo(data) {
+	return request({ url: '/todo/add', method: 'post', data: data })
+}
+function updateTodo(data) {
+	return request({ url: '/todo/update', method: 'post', data: data })
+}
 
 export {
 	getTodoList,
